@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending 2026年10月20日 · 每日简报</title>
+  <style>
+:root{
+  --bg:#f6f7f9; --bg-soft:#eceff3; --card:#ffffff; --ink:#0b0f17; --muted:#5a6472;
+  --line:#e5e8ee; --accent:#6d5efc; --accent-2:#13c2a3;
+  --gold:#f6b73c; --silver:#9aa7b8; --bronze:#cd8a5c;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05); --shadow:0 6px 24px rgba(16,24,40,.08);
+  --shadow-lg:0 16px 40px rgba(16,24,40,.12); --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#080b10; --bg-soft:#0e131b; --card:#10151e; --ink:#e8edf4; --muted:#8a96a8;
+  --line:#1c2531; --accent:#8b7bff; --accent-2:#22d3b0;
+  --gold:#ffcc5c; --silver:#aab6c6; --bronze:#d99a6c;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow:0 8px 28px rgba(0,0,0,.4);
+  --shadow-lg:0 18px 44px rgba(0,0,0,.5); --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;min-height:100vh}
+a{color:inherit}
+.toggle{position:absolute;top:20px;right:22px;z-index:3;display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:8px 14px;
+  border-radius:999px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.2s}
+.toggle:hover{background:rgba(255,255,255,.18)}
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:74px 24px 60px;
+  background:
+    radial-gradient(900px 420px at 12% -30%, rgba(109,94,252,.35), transparent 60%),
+    radial-gradient(820px 420px at 92% -10%, rgba(19,194,163,.28), transparent 55%),
+    linear-gradient(135deg,#0a0e16 0%,#0f1420 55%,#0a0e16 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(720px 380px at 50% 0%,#000,transparent 75%);
+          mask-image:radial-gradient(720px 380px at 50% 0%,#000,transparent 75%)}
+.hero-inner{position:relative;z-index:1;max-width:920px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.72);background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;
+  background:linear-gradient(180deg,#fff,#cdd3e0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{color:rgba(255,255,255,.74);font-size:1.05rem}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);
+  border-radius:16px;padding:16px 22px;min-width:132px}
+.stat .n{font-size:1.7rem;font-weight:800;background:linear-gradient(90deg,#fff,#b9c0d4);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:.78rem;color:rgba(255,255,255,.66);margin-top:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.backnav{max-width:960px;margin:22px auto 0;padding:0 20px}
+.backnav a{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;
+  font-size:.9rem;font-weight:600;transition:.15s}
+.backnav a:hover{color:var(--accent)}
+.section{margin:46px auto}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
+.section-head .hint{font-size:.85rem;color:var(--muted)}
+.repo{position:relative;display:grid;grid-template-columns:56px 1fr;gap:18px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px 20px 24px;margin-bottom:14px;
+  box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s,box-shadow .18s}
+.repo:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.repo::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:0 4px 4px 0;
+  background:var(--stripe,#cbd2dc)}
+.rank{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.15rem;background:var(--bg-soft);color:var(--muted);border:1px solid var(--line)}
+.repo.top1 .rank{background:linear-gradient(145deg,#fff3d1,#ffe39a);color:#9a6b00;border-color:#f3d27a}
+.repo.top2 .rank{background:linear-gradient(145deg,#f2f5f9,#dde4ee);color:#5b6b7e;border-color:#cfd8e4}
+.repo.top3 .rank{background:linear-gradient(145deg,#fbe7d6,#f0c9a6);color:#92552a;border-color:#e6c09a}
+.r-main{min-width:0}
+.r-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.r-name{font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.r-name:hover{color:var(--accent)}
+.r-name .owner{color:var(--muted);font-weight:500}
+.gain{margin-left:auto;font-size:.82rem;font-weight:700;color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:5px 13px;border-radius:999px;
+  white-space:nowrap;box-shadow:var(--shadow-sm)}
+.r-desc{font-size:.92rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.r-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.lang{display:inline-flex;align-items:center;gap:7px}
+.lang .dot{width:11px;height:11px;border-radius:50%}
+.r-meta b{color:var(--ink);font-weight:700}
+.lang-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.lrow{display:flex;align-items:center;gap:12px}
+.lname{width:108px;flex-shrink:0;font-size:.88rem;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:7px}
+.lname .dot{width:10px;height:10px;border-radius:50%}
+.ltrack{flex:1;height:9px;background:var(--bg-soft);border-radius:999px;overflow:hidden}
+.lfill{height:100%;border-radius:999px;background:var(--c,var(--accent))}
+.lcount{width:54px;text-align:right;font-size:.82rem;color:var(--muted);font-weight:600}
+.insights{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;
+  box-shadow:var(--shadow-sm)}
+.insights ul{list-style:none;display:grid;gap:12px;margin-top:6px}
+.insights li{position:relative;padding-left:26px;color:var(--muted);line-height:1.6}
+.insights li::before{content:"\25B9";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
+.insights li b{color:var(--ink)}
+.footer{margin-top:56px;border-top:1px solid var(--line);padding:30px 24px;text-align:center;
+  color:var(--muted);font-size:.85rem;line-height:1.8}
+.footer a{color:var(--accent);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.archive{max-width:1000px;margin:0 auto;padding:0 20px}
+.month{margin:46px auto 6px;font-size:1.15rem;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:10px}
+.month::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:18px}
+.day{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:18px 20px;text-decoration:none;color:inherit;transition:.18s;position:relative;overflow:hidden}
+.day:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.day .d-date{font-size:1.08rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.day .d-sub{font-size:.82rem;color:var(--muted)}
+.day .d-bar{margin-top:10px;height:6px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.badge-new{position:absolute;top:13px;right:13px;font-size:.66rem;font-weight:700;color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:3px 9px;border-radius:999px;
+  letter-spacing:.04em}
+@media(max-width:680px){
+  .hero h1{font-size:1.9rem}
+  .lang-list{grid-template-columns:1fr}
+  .repo{grid-template-columns:48px 1fr;gap:14px;padding:16px 16px 16px 20px}
+  .rank{width:48px;height:48px;font-size:1rem}
+  .gain{margin-left:0}
+}
+
+.pagenav{max-width:960px;margin:22px auto;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap}
+.pagenav a,.pagenav span{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  font-size:.86rem;font-weight:600;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--card);color:var(--muted);transition:.15s}
+.pagenav a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+.pagenav .pn-home{color:var(--accent);border-color:var(--accent)}
+.pagenav .pn-latest{color:var(--accent-2);border-color:var(--accent-2)}
+.pagenav .disabled{opacity:.4;pointer-events:none}
+@media(max-width:680px){.pagenav{gap:8px}.pagenav a,.pagenav span{padding:7px 11px;font-size:.8rem}}
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <button class="toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    <div class="hero-inner">
+      <span class="eyebrow">📈 GitHub Trending</span>
+      <h1>每日热门仓库简报</h1>
+      <p class="sub">2026年10月20日 · 共 12 个仓库登上 Trending · 今日新增 +11,226 Stars</p>
+      <div class="stats">
+        <div class="stat"><div class="n">12</div><div class="l">Trending 仓库</div></div>
+        <div class="stat"><div class="n">+11,226</div><div class="l">今日新增 Stars</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">编程语言</div></div>
+      </div>
+    </div>
+  </header>
+<!--PAGENAV-START-->
+  <nav class="pagenav"><a class="pn-prev" href="github-trending-2026-10-19.html">← 上一个</a><a class="pn-home" href="index.html">🏠 主页</a><span class="disabled">⚡ 最新</span><span class="disabled">下一个 →</span></nav>
+  <!--PAGENAV-END-->
+
+  <div class="wrap section">
+    <div class="section-head"><h2>🔥 今日热门</h2><span class="hint">按今日新增 Star 排序</span></div>
+    <div class="repo top1" style="--stripe:#3776AB">
+      <div class="rank">#1</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/MadsLorentzen/ai-job-search" target="_blank"><span class="owner">MadsLorentzen/</span>ai-job-search</a>
+          <span class="gain">+3,856 ★ 今日</span>
+        </div>
+        <p class="r-desc">ai-job-search：「在你本机上运行的求职」——基于 Claude Code 的 AI 求职申请框架：评估职位发布、定制简历、撰写求职信、准备面试，Fork 它就等于拥有整套求职流水线。所有流程由编码智能体在本地执行，数据不出设备；把「投简历」这件重复劳动交给智能体跑，是智能体应用从编码走向个人工作流自动化的代表性案例。今日以 +3,856 涨星登顶，连续第三天在榜且持续走高。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>57,805</b></span>
+          <span>今日 <b>+3,856</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo top2" style="--stripe:#3178C6">
+      <div class="rank">#2</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/stablyai/orca" target="_blank"><span class="owner">stablyai/</span>orca</a>
+          <span class="gain">+1,590 ★ 今日</span>
+        </div>
+        <p class="r-desc">Orca：一个管理「智能体舰队」的工作台——与 Grok Bot、Claude Code 等一支智能体编队协作，用自己的订阅运行任意编码智能体，覆盖桌面、移动与远程运行时。把多个编码智能体当作一支舰队统一调度，今日以 +1,590 位居涨幅第二。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>98,489</b></span>
+          <span>今日 <b>+1,590</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo top3" style="--stripe:#3178C6">
+      <div class="rank">#3</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/anomalyco/opencode" target="_blank"><span class="owner">anomalyco/</span>opencode</a>
+          <span class="gain">+1,311 ★ 今日</span>
+        </div>
+        <p class="r-desc">opencode：「The open source coding agent」——开源编码智能体本体。累计 Star 已达 217,968，是编码智能体赛道的头部开源项目之一；在各家官方智能体（Claude Code、Codex、Cursor Agent）之外，它代表了社区对「开放、可自托管、可定制」编码智能体的持续需求。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>217,968</b></span>
+          <span>今日 <b>+1,311</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#4</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/Comfy-Org/ComfyUI" target="_blank"><span class="owner">Comfy-Org/</span>ComfyUI</a>
+          <span class="gain">+1,011 ★ 今日</span>
+        </div>
+        <p class="r-desc">ComfyUI：最强大、模块化的扩散模型 GUI / API / 后端——基于节点图（graph/nodes）界面，自称「世界上最快的本地推理引擎」。累计 Star 已达 139,910，AIGC 图像生成的可视化工作流事实标准；官方组织（Comfy-Org）账号持续在榜，社区热度依旧坚挺。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>139,910</b></span>
+          <span>今日 <b>+1,011</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#CE422B">
+      <div class="rank">#5</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/akitaonrails/ai-memory" target="_blank"><span class="owner">akitaonrails/</span>ai-memory</a>
+          <span class="gain">+666 ★ 今日</span>
+        </div>
+        <p class="r-desc">ai-memory：面向智能体编码 CLI 的长期记忆方案，并简化不同智能体厂商之间的交接（handoff）。编码智能体的「记忆断层」是真实痛点——换一个 CLI 就丢掉全部上下文；它让记忆跟随工程师而不是跟随工具，Rust 实现保证性能。连续多日在榜，累计已突破 1.1 万。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#CE422B"></span>Rust</span>
+          <span>★ <b>11,484</b></span>
+          <span>今日 <b>+666</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#6</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/HKUDS/CLI-Anything" target="_blank"><span class="owner">HKUDS/</span>CLI-Anything</a>
+          <span class="gain">+606 ★ 今日</span>
+        </div>
+        <p class="r-desc">CLI-Anything：「让所有软件 Agent-Native 化」——把传统软件改造成智能体可直接驱动的 CLI 形态（港大数据智能实验室出品，附 CLI-Hub 生态站点）。软件的智能体原生改造（Agent-Native）正在成为基础设施级方向：当智能体成为主要用户，软件的交互界面 first 要为它重写。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>55,346</b></span>
+          <span>今日 <b>+606</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#7</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/ruvnet/ruflo" target="_blank"><span class="owner">ruvnet/</span>ruflo</a>
+          <span class="gain">+564 ★ 今日</span>
+        </div>
+        <p class="r-desc">ruflo：「The original agent harness」——部署智能多玩家蜂群（swarms）、编排自治工作流、构建对话式 AI 系统。特性覆盖自适应记忆、自学习智能、联邦化、向量 RAG 集成，原生支持 Claude Code / Codex / Hermes 等多种智能体接入。多智能体编排赛道的元老级框架，连续多日在榜。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>77,303</b></span>
+          <span>今日 <b>+564</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#8</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/Kruk2/jasna" target="_blank"><span class="owner">Kruk2/</span>jasna</a>
+          <span class="gain">+498 ★ 今日</span>
+        </div>
+        <p class="r-desc">jasna：视频修复（video restoration）工具——对老视频、低画质素材做去噪、超分等修复处理。延续昨日热度继续上涨，累计 2,990 Star；在图形 / 视频 / 显示方向对读者有直接参考价值。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>2,990</b></span>
+          <span>今日 <b>+498</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#9</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/shiyu-coder/Kronos" target="_blank"><span class="owner">shiyu-coder/</span>Kronos</a>
+          <span class="gain">+363 ★ 今日</span>
+        </div>
+        <p class="r-desc">Kronos：「金融市场语言的基础模型」——面向 K 线 / 金融时序的生成式预训练基础模型，把 OHLCV 行情当作一种「语言」来建模。AI 与量化金融交叉方向的新面孔，对金融数据分析方向的读者有直接参考价值。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>41,780</b></span>
+          <span>今日 <b>+363</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#10</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/headroomlabs-ai/headroom" target="_blank"><span class="owner">headroomlabs-ai/</span>headroom</a>
+          <span class="gain">+310 ★ 今日</span>
+        </div>
+        <p class="r-desc">headroom：在工具输出、日志、文件与 RAG 分块到达 LLM 之前先行压缩——编码智能体省 20% token，JSON 场景省 60–95%，答案不变。提供库、代理、MCP Server 三种接入形态。「上下文工程（context engineering）」方向的代表作：当上下文窗口成为最贵的资源，压缩就是最直接的优化。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>76,334</b></span>
+          <span>今日 <b>+310</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#F7DF1E">
+      <div class="rank">#11</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/withmarbleapp/os-taxonomy" target="_blank"><span class="owner">withmarbleapp/</span>os-taxonomy</a>
+          <span class="gain">+284 ★ 今日</span>
+        </div>
+        <p class="r-desc">os-taxonomy：Marble 出品的中小学学习内容开放知识图谱——把小学阶段「孩子学什么」拆解为 1,591 个微知识点（micro-topics），以 3,225 条先修依赖边组成有向无环图，并对齐国家课程标准（ODbL-1.0 开放许可）；附 3D 旋转图谱可视化与交互探索站点。教育数据集 + 知识图谱方向的新面孔，README 已核验定位。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#F7DF1E"></span>JavaScript</span>
+          <span>★ <b>6,237</b></span>
+          <span>今日 <b>+284</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#12</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/anthropics/claude-code" target="_blank"><span class="owner">anthropics/</span>claude-code</a>
+          <span class="gain">+167 ★ 今日</span>
+        </div>
+        <p class="r-desc">claude-code：Anthropic 官方的智能体编码工具——常驻终端、理解整个代码库，通过自然语言指令执行例行任务、解释复杂代码、处理 git 工作流。累计 Star 已达 152,717 的超级体量项目，此前长期不进 Trending，本次为该自动化有记录以来的首次登榜。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>152,717</b></span>
+          <span>今日 <b>+167</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="section-head"><h2>📊 编程语言分布</h2></div>
+    <div class="lang-list">
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span class="ltrack"><span class="lfill" style="--c:#3776AB;width:100%"></span></span>
+          <span class="lcount">6 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span class="ltrack"><span class="lfill" style="--c:#3178C6;width:66%"></span></span>
+          <span class="lcount">4 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#F7DF1E"></span>JavaScript</span>
+          <span class="ltrack"><span class="lfill" style="--c:#F7DF1E;width:16%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#CE422B"></span>Rust</span>
+          <span class="ltrack"><span class="lfill" style="--c:#CE422B;width:16%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="insights">
+      <div class="section-head"><h2>💡 今日看点</h2></div>
+      <ul>
+<li><b>MadsLorentzen/ai-job-search 今日涨星最快、同时位居榜单首位</b>：单日新增 <b>+3,856</b> Stars，为今日最高（GitHub 原始榜单首位与其一致，合并表述场景）。注意 GitHub 的榜单排序并非按当日涨幅，本报告统一按「今日新增 Star」重新排序。</li>
+<li><b>Python 最为活跃</b>：占据 6/12 个 Trending 席位（ai-job-search、ComfyUI、CLI-Anything、jasna、Kronos、headroom），是今日主力语言；其余席位分布：TypeScript（4）、Rust（1）、JavaScript（1）。</li>
+<li><b>今日榜单覆盖 4 种语言</b>：Python（6）、TypeScript（4）、Rust（1）、JavaScript（1）。</li>
+<li><b>头部三强贡献约 60% 增量</b>：ai-job-search（+3,856）、orca（+1,590）与 opencode（+1,311）领跑今日榜单；合计占今日总增量（+11,226）的 <b>60%</b>。</li>
+<li><b>热度维持中等水平</b>：今日榜单新增合计 <b>+11,226</b> Stars，较上期 10-19（+10,738）基本持平（约 +5%），延续 10-19 回落后的中等水位（对比 10-14 峰值 +67,642 与 10-13 的 +55,403 差一个量级）。榜单规模 12 个（上期 13 个），且没有出现单个「霸榜巨无霸」——最高涨幅 +3,856，为近期最温和的头部之一。</li>
+<li><b>AI / Agent 相关 10/12</b>：明确计入 AI 的是 ai-job-search、orca、opencode、ComfyUI、ai-memory、CLI-Anything、ruflo、Kronos、headroom、claude-code，覆盖 AI 求职流水线、开源编码智能体、Claude Code 本体、多智能体编排与舰队、智能体长期记忆、上下文工程压缩、软件 Agent-Native 化、扩散模型工作流与金融时序基础模型。不计入的 2 个：jasna、os-taxonomy（jasna 为视频修复工具、经典 CV 方向；os-taxonomy 为教育知识图谱数据集，README 已核验）。判定口径：本行已明示名单，读者可自行复算。</li>
+<li><b>新面孔 4 个、延续 8 个</b>：新进 <b>headroomlabs-ai/headroom</b>（LLM 上下文压缩，省 20%–95% token）、<b>withmarbleapp/os-taxonomy</b>（中小学学习内容知识图谱，README 已核验）、<b>anthropics/claude-code</b>（官方编码智能体本体，152,717 体量首登 Trending）、<b>shiyu-coder/Kronos</b>（金融市场基础模型）；延续项：ai-job-search、opencode、ai-memory、ComfyUI、ruflo、orca、jasna、CLI-Anything。较上期掉榜 5 个：cursor/plugins、claude-plugins-official、VoiceStudio、android/skills、llm-course。</li>
+<li><b>数据来源说明（本轮特殊）</b>：本轮沙箱对 github.com 主站全部边缘 IP 均无法建立 TCP 连接（14 个 IP 全试，api.github.com 正常），改用三源交叉验证取数：两趟独立 WebFetch + 第三方归档快照（feverdestiny/github-trending-daily 的 2026-10-20 数据），三方在仓库名单、顺序与每个「今日新增」上完全一致，确认今日榜单真实为 12 个仓库、总增量 +11,226，非截断假象。</li>
+<li><b>AI 求职申请流水线（智能体走向个人工作流）</b>：ai-job-search 上榜，成为今日看点。</li>
+<li><b>开源编码智能体本体</b>：opencode 上榜，成为今日看点。</li>
+<li><b>官方编码智能体（Claude Code 本体）</b>：claude-code 上榜，成为今日看点。</li>
+<li><b>多智能体舰队与编排</b>：orca、ruflo 上榜，成为今日看点。</li>
+<li><b>智能体长期记忆与跨厂商交接</b>：ai-memory 上榜，成为今日看点。</li>
+<li><b>上下文工程与 Token 压缩</b>：headroom 上榜，成为今日看点。</li>
+<li><b>软件 Agent-Native 化</b>：CLI-Anything 上榜，成为今日看点。</li>
+<li><b>扩散模型工作流与本地推理</b>：ComfyUI 上榜，成为今日看点。</li>
+<li><b>教育知识图谱数据集</b>：os-taxonomy 上榜，成为今日看点。</li>
+<li><b>金融时序基础模型</b>：Kronos 上榜，成为今日看点。</li>
+<li><b>视频修复工具</b>：jasna 上榜，成为今日看点。</li>
+      </ul>
+    </div>
+  </div>
+  <!--PAGENAV-START-->
+  <nav class="pagenav"><a class="pn-prev" href="github-trending-2026-10-19.html">← 上一个</a><a class="pn-home" href="index.html">🏠 主页</a><span class="disabled">⚡ 最新</span><span class="disabled">下一个 →</span></nav>
+  <!--PAGENAV-END-->
+<div class="footer">
+    🔗 数据来源 <a href="https://github.com/trending" target="_blank">GitHub Trending</a> · 自动生成于 2026年10月20日 CST<br>
+    由 <a href="https://github.com/lph12168x" target="_blank">@lph12168x</a> 维护 · <a href="index.html">日报列表</a>
+  </div>
+  <script>
+    (function(){var t=localStorage.getItem("gh-trending-theme");
+      if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");
+        document.getElementById("themeBtn").innerHTML="☀️ Light";}})();
+    function toggleTheme(){var d=document.documentElement.getAttribute("data-theme")==="dark";
+      if(d){document.documentElement.removeAttribute("data-theme");localStorage.setItem("gh-trending-theme","light");
+        document.getElementById("themeBtn").innerHTML="🌙 Dark";}
+      else{document.documentElement.setAttribute("data-theme","dark");localStorage.setItem("gh-trending-theme","dark");
+        document.getElementById("themeBtn").innerHTML="☀️ Light";}}
+  </script>
+
+</body>
+</html>
