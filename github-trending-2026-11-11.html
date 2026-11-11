@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending 2026年11月11日 · 每日简报</title>
+  <style>
+:root{
+  --bg:#f6f7f9; --bg-soft:#eceff3; --card:#ffffff; --ink:#0b0f17; --muted:#5a6472;
+  --line:#e5e8ee; --accent:#6d5efc; --accent-2:#13c2a3;
+  --gold:#f6b73c; --silver:#9aa7b8; --bronze:#cd8a5c;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05); --shadow:0 6px 24px rgba(16,24,40,.08);
+  --shadow-lg:0 16px 40px rgba(16,24,40,.12); --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#080b10; --bg-soft:#0e131b; --card:#10151e; --ink:#e8edf4; --muted:#8a96a8;
+  --line:#1c2531; --accent:#8b7bff; --accent-2:#22d3b0;
+  --gold:#ffcc5c; --silver:#aab6c6; --bronze:#d99a6c;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow:0 8px 28px rgba(0,0,0,.4);
+  --shadow-lg:0 18px 44px rgba(0,0,0,.5); --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;min-height:100vh}
+a{color:inherit}
+.toggle{position:absolute;top:20px;right:22px;z-index:3;display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:8px 14px;
+  border-radius:999px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.2s}
+.toggle:hover{background:rgba(255,255,255,.18)}
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:74px 24px 60px;
+  background:
+    radial-gradient(900px 420px at 12% -30%, rgba(109,94,252,.35), transparent 60%),
+    radial-gradient(820px 420px at 92% -10%, rgba(19,194,163,.28), transparent 55%),
+    linear-gradient(135deg,#0a0e16 0%,#0f1420 55%,#0a0e16 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(720px 380px at 50% 0%,#000,transparent 75%);
+          mask-image:radial-gradient(720px 380px at 50% 0%,#000,transparent 75%)}
+.hero-inner{position:relative;z-index:1;max-width:920px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.72);background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;
+  background:linear-gradient(180deg,#fff,#cdd3e0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{color:rgba(255,255,255,.74);font-size:1.05rem}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);
+  border-radius:16px;padding:16px 22px;min-width:132px}
+.stat .n{font-size:1.7rem;font-weight:800;background:linear-gradient(90deg,#fff,#b9c0d4);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:.78rem;color:rgba(255,255,255,.66);margin-top:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.backnav{max-width:960px;margin:22px auto 0;padding:0 20px}
+.backnav a{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;
+  font-size:.9rem;font-weight:600;transition:.15s}
+.backnav a:hover{color:var(--accent)}
+.section{margin:46px auto}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
+.section-head .hint{font-size:.85rem;color:var(--muted)}
+.repo{position:relative;display:grid;grid-template-columns:56px 1fr;gap:18px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px 20px 24px;margin-bottom:14px;
+  box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s,box-shadow .18s}
+.repo:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.repo::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:0 4px 4px 0;
+  background:var(--stripe,#cbd2dc)}
+.rank{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.15rem;background:var(--bg-soft);color:var(--muted);border:1px solid var(--line)}
+.repo.top1 .rank{background:linear-gradient(145deg,#fff3d1,#ffe39a);color:#9a6b00;border-color:#f3d27a}
+.repo.top2 .rank{background:linear-gradient(145deg,#f2f5f9,#dde4ee);color:#5b6b7e;border-color:#cfd8e4}
+.repo.top3 .rank{background:linear-gradient(145deg,#fbe7d6,#f0c9a6);color:#92552a;border-color:#e6c09a}
+.r-main{min-width:0}
+.r-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.r-name{font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.r-name:hover{color:var(--accent)}
+.r-name .owner{color:var(--muted);font-weight:500}
+.gain{margin-left:auto;font-size:.82rem;font-weight:700;color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:5px 13px;border-radius:999px;
+  white-space:nowrap;box-shadow:var(--shadow-sm)}
+.r-desc{font-size:.92rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.r-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.lang{display:inline-flex;align-items:center;gap:7px}
+.lang .dot{width:11px;height:11px;border-radius:50%}
+.r-meta b{color:var(--ink);font-weight:700}
+.lang-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.lrow{display:flex;align-items:center;gap:12px}
+.lname{width:108px;flex-shrink:0;font-size:.88rem;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:7px}
+.lname .dot{width:10px;height:10px;border-radius:50%}
+.ltrack{flex:1;height:9px;background:var(--bg-soft);border-radius:999px;overflow:hidden}
+.lfill{height:100%;border-radius:999px;background:var(--c,var(--accent))}
+.lcount{width:54px;text-align:right;font-size:.82rem;color:var(--muted);font-weight:600}
+.insights{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;
+  box-shadow:var(--shadow-sm)}
+.insights ul{list-style:none;display:grid;gap:12px;margin-top:6px}
+.insights li{position:relative;padding-left:26px;color:var(--muted);line-height:1.6}
+.insights li::before{content:"\25B9";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
+.insights li b{color:var(--ink)}
+.footer{margin-top:56px;border-top:1px solid var(--line);padding:30px 24px;text-align:center;
+  color:var(--muted);font-size:.85rem;line-height:1.8}
+.footer a{color:var(--accent);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.archive{max-width:1000px;margin:0 auto;padding:0 20px}
+.month{margin:46px auto 6px;font-size:1.15rem;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:10px}
+.month::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:18px}
+.day{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:18px 20px;text-decoration:none;color:inherit;transition:.18s;position:relative;overflow:hidden}
+.day:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.day .d-date{font-size:1.08rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.day .d-sub{font-size:.82rem;color:var(--muted)}
+.day .d-bar{margin-top:10px;height:6px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.badge-new{position:absolute;top:13px;right:13px;font-size:.66rem;font-weight:700;color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:3px 9px;border-radius:999px;
+  letter-spacing:.04em}
+@media(max-width:680px){
+  .hero h1{font-size:1.9rem}
+  .lang-list{grid-template-columns:1fr}
+  .repo{grid-template-columns:48px 1fr;gap:14px;padding:16px 16px 16px 20px}
+  .rank{width:48px;height:48px;font-size:1rem}
+  .gain{margin-left:0}
+}
+
+.pagenav{max-width:960px;margin:22px auto;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap}
+.pagenav a,.pagenav span{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  font-size:.86rem;font-weight:600;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--card);color:var(--muted);transition:.15s}
+.pagenav a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+.pagenav .pn-home{color:var(--accent);border-color:var(--accent)}
+.pagenav .pn-latest{color:var(--accent-2);border-color:var(--accent-2)}
+.pagenav .disabled{opacity:.4;pointer-events:none}
+@media(max-width:680px){.pagenav{gap:8px}.pagenav a,.pagenav span{padding:7px 11px;font-size:.8rem}}
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <button class="toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    <div class="hero-inner">
+      <span class="eyebrow">📈 GitHub Trending</span>
+      <h1>每日热门仓库简报</h1>
+      <p class="sub">2026年11月11日 · 共 12 个仓库登上 Trending · 今日新增 +12,153 Stars</p>
+      <div class="stats">
+        <div class="stat"><div class="n">12</div><div class="l">Trending 仓库</div></div>
+        <div class="stat"><div class="n">+12,153</div><div class="l">今日新增 Stars</div></div>
+        <div class="stat"><div class="n">7</div><div class="l">编程语言</div></div>
+      </div>
+    </div>
+  </header>
+<!--PAGENAV-START-->
+  <nav class="pagenav"><a class="pn-prev" href="github-trending-2026-11-10.html">← 上一个</a><a class="pn-home" href="index.html">🏠 主页</a><span class="disabled">⚡ 最新</span><span class="disabled">下一个 →</span></nav>
+  <!--PAGENAV-END-->
+
+  <div class="wrap section">
+    <div class="section-head"><h2>🔥 今日热门</h2><span class="hint">按今日新增 Star 排序</span></div>
+    <div class="repo top1" style="--stripe:#3178C6">
+      <div class="rank">#1</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/meta/astryx" target="_blank"><span class="owner">meta/</span>astryx</a>
+          <span class="gain">+3,108 ★ 今日</span>
+        </div>
+        <p class="r-desc">astryx：Meta 开源的设计系统——在 Meta 内部生长八年、支撑 13,000+ 应用后走向开源（Beta）；提供 150+ 无障碍组件、品牌级主题、暗色模式与 CLI，基于 React 19 + StyleX 构建，API 与文档专为「人和 AI 智能体用同一套工具协同开发」而设计。连续第三日在榜且今日重返涨幅榜首，累计 Star 23,331。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>23,331</b></span>
+          <span>今日 <b>+3,108</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo top2" style="--stripe:#3776AB">
+      <div class="rank">#2</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/sherlock-project/sherlock" target="_blank"><span class="owner">sherlock-project/</span>sherlock</a>
+          <span class="gain">+2,393 ★ 今日</span>
+        </div>
+        <p class="r-desc">sherlock：跨社交网络按用户名侦查社交账号的开源 OSINT 工具——输入一个用户名，即可在数百个社交平台上并行查找同名账号。开源情报领域最知名的项目之一，连续第三日在榜，累计 Star 达 109,252（10 万+）。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>109,252</b></span>
+          <span>今日 <b>+2,393</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo top3" style="--stripe:#3776AB">
+      <div class="rank">#3</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/anthropics/skills" target="_blank"><span class="owner">anthropics/</span>skills</a>
+          <span class="gain">+1,679 ★ 今日</span>
+        </div>
+        <p class="r-desc">skills：Anthropic 官方的智能体技能（Agent Skills）公共仓库——SKILL.md 开放标准的官方实现与示例集合，供 Claude 等智能体安装使用。「技能层」官方源头仓库连续第三日在榜，累计 Star 达 192,507（19 万+）。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>192,507</b></span>
+          <span>今日 <b>+1,679</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#89E051">
+      <div class="rank">#4</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/mattpocock/skills" target="_blank"><span class="owner">mattpocock/</span>skills</a>
+          <span class="gain">+1,225 ★ 今日</span>
+        </div>
+        <p class="r-desc">skills：Matt Pocock（Total TypeScript 作者、TypeScript 教育领域最具影响力人物之一）公开的个人智能体技能目录——「给真正工程师的 Skills， straight from my .agents directory」，把他日常开发工作流中沉淀的智能体技能配置原样开源。新面孔首次登榜即以 321,113（32 万）Star 成为今日全榜体量之最。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#89E051"></span>Shell</span>
+          <span>★ <b>321,113</b></span>
+          <span>今日 <b>+1,225</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#5</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank"><span class="owner">homeassistant-ai/</span>ha-mcp</a>
+          <span class="gain">+790 ★ 今日</span>
+        </div>
+        <p class="r-desc">ha-mcp：Home Assistant MCP 服务器——用 Claude、ChatGPT 等 AI 助手配置和自动化智能家居，提供 87 个工具，基于 FastMCP 构建。智能家居 × AI 官方组织仓库连续第二日在榜，累计 Star 6,774。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>6,774</b></span>
+          <span>今日 <b>+790</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#CE422B">
+      <div class="rank">#6</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/vercel-labs/agent-browser" target="_blank"><span class="owner">vercel-labs/</span>agent-browser</a>
+          <span class="gain">+780 ★ 今日</span>
+        </div>
+        <p class="r-desc">agent-browser：面向 AI 智能体的浏览器自动化 CLI——Vercel Labs 出品，让智能体像操控桌面一样操控浏览器。与 agent-desktop 同门，「给智能体一台电脑/浏览器」赛道连续第三日在榜，累计 Star 49,363，逼近 5 万。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#CE422B"></span>Rust</span>
+          <span>★ <b>49,363</b></span>
+          <span>今日 <b>+780</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#7</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/anthropics/claude-quickstarts" target="_blank"><span class="owner">anthropics/</span>claude-quickstarts</a>
+          <span class="gain">+531 ★ 今日</span>
+        </div>
+        <p class="r-desc">claude-quickstarts：Anthropic 官方的 Claude API 快速上手项目集——一系列帮助开发者用 Claude API 快速构建可部署应用（含智能体应用）的官方示例库。连续第三日在榜，累计 Star 20,580。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>20,580</b></span>
+          <span>今日 <b>+531</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#F7DF1E">
+      <div class="rank">#8</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/addyosmani/agent-skills" target="_blank"><span class="owner">addyosmani/</span>agent-skills</a>
+          <span class="gain">+465 ★ 今日</span>
+        </div>
+        <p class="r-desc">agent-skills：Addy Osmani（Google Chrome 团队工程负责人、《Learning JavaScript Design Patterns》作者）开源的面向 AI 编程智能体的生产级工程技能集——把资深工程师的代码审查、测试、架构等工程实践封装成可安装的智能体技能。新面孔首次登榜，累计 Star 115,293（11 万+）。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#F7DF1E"></span>JavaScript</span>
+          <span>★ <b>115,293</b></span>
+          <span>今日 <b>+465</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#00599C">
+      <div class="rank">#9</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/google-deepmind/mujoco" target="_blank"><span class="owner">google-deepmind/</span>mujoco</a>
+          <span class="gain">+456 ★ 今日</span>
+        </div>
+        <p class="r-desc">MuJoCo：Multi-Joint dynamics with Contact——DeepMind 维护的通用多关节接触动力学物理仿真引擎，机器人学与强化学习研究的标准工具，对图形/仿真方向的读者亦有参考价值。连续第三日在榜，累计 Star 17,443。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#00599C"></span>C++</span>
+          <span>★ <b>17,443</b></span>
+          <span>今日 <b>+456</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#10</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/ranxianglei/billion-context" target="_blank"><span class="owner">ranxianglei/</span>billion-context</a>
+          <span class="gain">+375 ★ 今日</span>
+        </div>
+        <p class="r-desc">billion-context：上下文压缩插件——为月级超长会话（十亿 token 级）压缩上下文，100K 小窗口即可承载，节省约 5 倍 token。回归项目（上次 11-04），累计 Star 6,441。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>6,441</b></span>
+          <span>今日 <b>+375</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#CE422B">
+      <div class="rank">#11</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/tokio-rs/topcoat" target="_blank"><span class="owner">tokio-rs/</span>topcoat</a>
+          <span class="gain">+192 ★ 今日</span>
+        </div>
+        <p class="r-desc">topcoat：Tokio 团队出品的「电池全含」Rust Web 应用框架——开箱即用地集成 Tokio 生态的异步运行时与配套组件，面向 Web 全栈开发。知名异步运行时官方组织新面孔首次登榜，累计 Star 6,911。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#CE422B"></span>Rust</span>
+          <span>★ <b>6,911</b></span>
+          <span>今日 <b>+192</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#CC342D">
+      <div class="rank">#12</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/we-promise/sure" target="_blank"><span class="owner">we-promise/</span>sure</a>
+          <span class="gain">+159 ★ 今日</span>
+        </div>
+        <p class="r-desc">sure：「属于所有人、由所有人构建」的个人理财应用——社区驱动的开源记账与财务规划工具。新面孔首次登榜，累计 Star 12,143。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#CC342D"></span>Ruby</span>
+          <span>★ <b>12,143</b></span>
+          <span>今日 <b>+159</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="section-head"><h2>📊 编程语言分布</h2></div>
+    <div class="lang-list">
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span class="ltrack"><span class="lfill" style="--c:#3776AB;width:100%"></span></span>
+          <span class="lcount">4 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#CE422B"></span>Rust</span>
+          <span class="ltrack"><span class="lfill" style="--c:#CE422B;width:50%"></span></span>
+          <span class="lcount">2 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span class="ltrack"><span class="lfill" style="--c:#3178C6;width:50%"></span></span>
+          <span class="lcount">2 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#00599C"></span>C++</span>
+          <span class="ltrack"><span class="lfill" style="--c:#00599C;width:25%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#F7DF1E"></span>JavaScript</span>
+          <span class="ltrack"><span class="lfill" style="--c:#F7DF1E;width:25%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#CC342D"></span>Ruby</span>
+          <span class="ltrack"><span class="lfill" style="--c:#CC342D;width:25%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#89E051"></span>Shell</span>
+          <span class="ltrack"><span class="lfill" style="--c:#89E051;width:25%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="insights">
+      <div class="section-head"><h2>💡 今日看点</h2></div>
+      <ul>
+<li><b>astryx 今日涨星最快</b>：单日新增 <b>+3,108</b> Stars（Meta 设计系统连续第三日在榜并重返榜首）。GitHub 原始榜单首位同样是 meta/astryx（+3,108）——<b>今日两者恰好一致</b>；但仍提醒：GitHub 榜单排序并非按当日涨幅（如原始第 2 位 anthropics/skills 仅 +1,679，而原始第 9 位 sherlock 有 +2,393），本报告统一按「今日新增 Star」重新排序。</li>
+<li><b>Python 以 4/12 居首</b>：sherlock、anthropics/skills 与 ha-mcp 三席；其余分布：TypeScript（2）、Rust（2）、Shell（1）、JavaScript（1）、C++（1）、Ruby（1），共 7 种语言（含新面孔的 Shell、Ruby），全部已内置色表，无 #888888 缺色回退。</li>
+<li><b>头部三强贡献约 59% 增量</b>：astryx（+3,108）、sherlock（+2,393）与 anthropics/skills（+1,679）领跑今日榜单，合计占今日总增量（+12,153）的 <b>59%</b>；长尾由 sure 的 +159 收尾。</li>
+<li><b>热度高位微降</b>：今日收录榜单新增合计 <b>+12,153</b> Stars（12 个仓库），较上期 11-10（+13,136 / 11 个仓库）回落约 <b>7%</b>，仍维持在 10-27 以来的高位区间；仓库数 12 个为近两周最多，热度结构更分散。</li>
+<li><b>AI / Agent 相关 7/12</b>：skills、skills、ha-mcp、agent-browser、claude-quickstarts、agent-skills、billion-context。非 AI 的 5 个为 astryx（设计系统本体，dbx 先例）、sherlock（OSINT 侦查工具）、mujoco（物理仿真引擎）、topcoat（Rust Web 框架）、sure（个人理财应用）（sure 贡献者列表含 claude 机器人账号不构成 AI 判定依据）。</li>
+<li><b>新面孔 4 个、回归 1 个、延续 7 个、掉榜 4 个</b>：新进 <b>mattpocock/skills</b>（Total TypeScript 作者的个人智能体技能目录，32 万 Star 全榜体量之最）、<b>addyosmani/agent-skills</b>（Chrome 团队工程负责人的生产级智能体工程技能）、<b>tokio-rs/topcoat</b>（Tokio 官方 Rust Web 框架）、<b>sure</b>（社区驱动的个人理财应用）；回归 <b>billion-context</b>（上次 11-04，上下文压缩）；上期 11 个仓库中 7 个延续（sherlock、astryx、skills、agent-browser、mujoco、claude-quickstarts、ha-mcp），掉榜 OpenMausBot、daily_stock_analysis、gbrain、RuView。</li>
+<li><b>主题观察：「智能体技能层」大爆发</b>——今日 12 席中 <b>4 个技能类仓库同榜</b>：anthropics/skills（官方源头，19 万）+ mattpocock/skills（个人专家目录，32 万）+ addyosmani/agent-skills（生产级工程技能，11 万）+ claude-quickstarts（官方上手示例），从「官方标准 → 个人专家 → 工程实践」三个层次同时爆发，技能生态正从 Anthropic 单点扩散为开发者社区的通用工作流；② <b>身体线</b>：agent-browser 连续第三日在榜（49K 逼近 5 万里程碑）；③ <b>记忆/上下文线</b>：billion-context 回归，与上期 gbrain 的智能体记忆形成「压缩 vs 长期记忆」互补；④ <b>基础软件</b>：topcoat（Tokio 官方）与 mujoco（DeepMind）代表 Rust 生态与物理仿真的经典热度；⑤ <b>生活应用</b>：sure（理财）与 ha-mcp（智能家居 × AI）延续「AI/开源走进日常」的主线。</li>
+<li><b>巨型项目里程碑</b>：mattpocock/skills 以 <b>321,113</b>（32 万）Star 成为今日全榜体量之最；anthropics/skills 达 <b>192,507</b>（19 万+）、addyosmani/agent-skills <b>115,293</b>（11 万+）、sherlock <b>109,252</b>（10 万+）——四个 10 万+ 项目同榜；agent-browser 49,363 逼近 5 万，astryx 23,331 三日近翻倍节奏。</li>
+<li><b>智能体技能生态</b>：skills、skills、claude-quickstarts、agent-skills 上榜，成为今日看点。</li>
+      </ul>
+    </div>
+  </div>
+  <!--PAGENAV-START-->
+  <nav class="pagenav"><a class="pn-prev" href="github-trending-2026-11-10.html">← 上一个</a><a class="pn-home" href="index.html">🏠 主页</a><span class="disabled">⚡ 最新</span><span class="disabled">下一个 →</span></nav>
+  <!--PAGENAV-END-->
+<div class="footer">
+    🔗 数据来源 <a href="https://github.com/trending" target="_blank">GitHub Trending</a> · 自动生成于 2026年11月11日 CST<br>
+    由 <a href="https://github.com/lph12168x" target="_blank">@lph12168x</a> 维护 · <a href="index.html">日报列表</a>
+  </div>
+  <script>
+    (function(){var t=localStorage.getItem("gh-trending-theme");
+      if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");
+        document.getElementById("themeBtn").innerHTML="☀️ Light";}})();
+    function toggleTheme(){var d=document.documentElement.getAttribute("data-theme")==="dark";
+      if(d){document.documentElement.removeAttribute("data-theme");localStorage.setItem("gh-trending-theme","light");
+        document.getElementById("themeBtn").innerHTML="🌙 Dark";}
+      else{document.documentElement.setAttribute("data-theme","dark");localStorage.setItem("gh-trending-theme","dark");
+        document.getElementById("themeBtn").innerHTML="☀️ Light";}}
+  </script>
+
+</body>
+</html>
