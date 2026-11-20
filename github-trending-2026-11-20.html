@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending 2026年11月20日 · 每日简报</title>
+  <style>
+:root{
+  --bg:#f6f7f9; --bg-soft:#eceff3; --card:#ffffff; --ink:#0b0f17; --muted:#5a6472;
+  --line:#e5e8ee; --accent:#6d5efc; --accent-2:#13c2a3;
+  --gold:#f6b73c; --silver:#9aa7b8; --bronze:#cd8a5c;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05); --shadow:0 6px 24px rgba(16,24,40,.08);
+  --shadow-lg:0 16px 40px rgba(16,24,40,.12); --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#080b10; --bg-soft:#0e131b; --card:#10151e; --ink:#e8edf4; --muted:#8a96a8;
+  --line:#1c2531; --accent:#8b7bff; --accent-2:#22d3b0;
+  --gold:#ffcc5c; --silver:#aab6c6; --bronze:#d99a6c;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow:0 8px 28px rgba(0,0,0,.4);
+  --shadow-lg:0 18px 44px rgba(0,0,0,.5); --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;min-height:100vh}
+a{color:inherit}
+.toggle{position:absolute;top:20px;right:22px;z-index:3;display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:8px 14px;
+  border-radius:999px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.2s}
+.toggle:hover{background:rgba(255,255,255,.18)}
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:74px 24px 60px;
+  background:
+    radial-gradient(900px 420px at 12% -30%, rgba(109,94,252,.35), transparent 60%),
+    radial-gradient(820px 420px at 92% -10%, rgba(19,194,163,.28), transparent 55%),
+    linear-gradient(135deg,#0a0e16 0%,#0f1420 55%,#0a0e16 100%)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(720px 380px at 50% 0%,#000,transparent 75%);
+          mask-image:radial-gradient(720px 380px at 50% 0%,#000,transparent 75%)}
+.hero-inner{position:relative;z-index:1;max-width:920px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.72);background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;
+  background:linear-gradient(180deg,#fff,#cdd3e0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{color:rgba(255,255,255,.74);font-size:1.05rem}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px);
+  border-radius:16px;padding:16px 22px;min-width:132px}
+.stat .n{font-size:1.7rem;font-weight:800;background:linear-gradient(90deg,#fff,#b9c0d4);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:.78rem;color:rgba(255,255,255,.66);margin-top:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.backnav{max-width:960px;margin:22px auto 0;padding:0 20px}
+.backnav a{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;
+  font-size:.9rem;font-weight:600;transition:.15s}
+.backnav a:hover{color:var(--accent)}
+.section{margin:46px auto}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
+.section-head .hint{font-size:.85rem;color:var(--muted)}
+.repo{position:relative;display:grid;grid-template-columns:56px 1fr;gap:18px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px 20px 24px;margin-bottom:14px;
+  box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s,box-shadow .18s}
+.repo:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.repo::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:0 4px 4px 0;
+  background:var(--stripe,#cbd2dc)}
+.rank{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.15rem;background:var(--bg-soft);color:var(--muted);border:1px solid var(--line)}
+.repo.top1 .rank{background:linear-gradient(145deg,#fff3d1,#ffe39a);color:#9a6b00;border-color:#f3d27a}
+.repo.top2 .rank{background:linear-gradient(145deg,#f2f5f9,#dde4ee);color:#5b6b7e;border-color:#cfd8e4}
+.repo.top3 .rank{background:linear-gradient(145deg,#fbe7d6,#f0c9a6);color:#92552a;border-color:#e6c09a}
+.r-main{min-width:0}
+.r-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.r-name{font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.r-name:hover{color:var(--accent)}
+.r-name .owner{color:var(--muted);font-weight:500}
+.gain{margin-left:auto;font-size:.82rem;font-weight:700;color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:5px 13px;border-radius:999px;
+  white-space:nowrap;box-shadow:var(--shadow-sm)}
+.r-desc{font-size:.92rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.r-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.lang{display:inline-flex;align-items:center;gap:7px}
+.lang .dot{width:11px;height:11px;border-radius:50%}
+.r-meta b{color:var(--ink);font-weight:700}
+.lang-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.lrow{display:flex;align-items:center;gap:12px}
+.lname{width:108px;flex-shrink:0;font-size:.88rem;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:7px}
+.lname .dot{width:10px;height:10px;border-radius:50%}
+.ltrack{flex:1;height:9px;background:var(--bg-soft);border-radius:999px;overflow:hidden}
+.lfill{height:100%;border-radius:999px;background:var(--c,var(--accent))}
+.lcount{width:54px;text-align:right;font-size:.82rem;color:var(--muted);font-weight:600}
+.insights{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;
+  box-shadow:var(--shadow-sm)}
+.insights ul{list-style:none;display:grid;gap:12px;margin-top:6px}
+.insights li{position:relative;padding-left:26px;color:var(--muted);line-height:1.6}
+.insights li::before{content:"\25B9";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
+.insights li b{color:var(--ink)}
+.footer{margin-top:56px;border-top:1px solid var(--line);padding:30px 24px;text-align:center;
+  color:var(--muted);font-size:.85rem;line-height:1.8}
+.footer a{color:var(--accent);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.archive{max-width:1000px;margin:0 auto;padding:0 20px}
+.month{margin:46px auto 6px;font-size:1.15rem;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:10px}
+.month::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:18px}
+.day{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:18px 20px;text-decoration:none;color:inherit;transition:.18s;position:relative;overflow:hidden}
+.day:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.day .d-date{font-size:1.08rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.day .d-sub{font-size:.82rem;color:var(--muted)}
+.day .d-bar{margin-top:10px;height:6px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.badge-new{position:absolute;top:13px;right:13px;font-size:.66rem;font-weight:700;color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:3px 9px;border-radius:999px;
+  letter-spacing:.04em}
+@media(max-width:680px){
+  .hero h1{font-size:1.9rem}
+  .lang-list{grid-template-columns:1fr}
+  .repo{grid-template-columns:48px 1fr;gap:14px;padding:16px 16px 16px 20px}
+  .rank{width:48px;height:48px;font-size:1rem}
+  .gain{margin-left:0}
+}
+
+.pagenav{max-width:960px;margin:22px auto;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap}
+.pagenav a,.pagenav span{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  font-size:.86rem;font-weight:600;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--card);color:var(--muted);transition:.15s}
+.pagenav a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+.pagenav .pn-home{color:var(--accent);border-color:var(--accent)}
+.pagenav .pn-latest{color:var(--accent-2);border-color:var(--accent-2)}
+.pagenav .disabled{opacity:.4;pointer-events:none}
+@media(max-width:680px){.pagenav{gap:8px}.pagenav a,.pagenav span{padding:7px 11px;font-size:.8rem}}
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <button class="toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    <div class="hero-inner">
+      <span class="eyebrow">📈 GitHub Trending</span>
+      <h1>每日热门仓库简报</h1>
+      <p class="sub">2026年11月20日 · 共 16 个仓库登上 Trending · 今日新增 +8,632 Stars</p>
+      <div class="stats">
+        <div class="stat"><div class="n">16</div><div class="l">Trending 仓库</div></div>
+        <div class="stat"><div class="n">+8,632</div><div class="l">今日新增 Stars</div></div>
+        <div class="stat"><div class="n">6</div><div class="l">编程语言</div></div>
+      </div>
+    </div>
+  </header>
+<!--PAGENAV-START-->
+  <nav class="pagenav"><a class="pn-prev" href="github-trending-2026-11-19.html">← 上一个</a><a class="pn-home" href="index.html">🏠 主页</a><span class="disabled">⚡ 最新</span><span class="disabled">下一个 →</span></nav>
+  <!--PAGENAV-END-->
+
+  <div class="wrap section">
+    <div class="section-head"><h2>🔥 今日热门</h2><span class="hint">按今日新增 Star 排序</span></div>
+    <div class="repo top1" style="--stripe:#89E051">
+      <div class="rank">#1</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/obra/superpowers" target="_blank"><span class="owner">obra/</span>superpowers</a>
+          <span class="gain">+2,028 ★ 今日</span>
+        </div>
+        <p class="r-desc">superpowers：久经考验的智能体技能框架与软件开发方法论——把 TDD、代码评审、子智能体协作等实践固化为可组合技能，供 Claude Code、Codex、Cursor 等编码智能体调用。连续第三日在榜、今日涨星冠军（+2,028），累计 Star 322,216，站稳 32 万。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#89E051"></span>Shell</span>
+          <span>★ <b>322,216</b></span>
+          <span>今日 <b>+2,028</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo top2" style="--stripe:#3776AB">
+      <div class="rank">#2</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/elementalsouls/Claude-BugHunter" target="_blank"><span class="owner">elementalsouls/</span>Claude-BugHunter</a>
+          <span class="gain">+1,349 ★ 今日</span>
+        </div>
+        <p class="r-desc">Claude-BugHunter：面向 Claude Code 的漏洞挖掘与外部红队技能包——82 个技能、15 个斜杠命令，收录跨 24 类核心漏洞的 681 个已公开报告模式，并覆盖企业身份与基础设施攻击矩阵。回归登榜（上次 11-18），今日 GitHub 原始榜单首位（+1,349，按新增重排后第二），累计 Star 12,778。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>12,778</b></span>
+          <span>今日 <b>+1,349</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo top3" style="--stripe:#3776AB">
+      <div class="rank">#3</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/mvanhorn/last30days-skill" target="_blank"><span class="owner">mvanhorn/</span>last30days-skill</a>
+          <span class="gain">+954 ★ 今日</span>
+        </div>
+        <p class="r-desc">last30days-skill：AI 智能体研究技能——跨 Reddit、X、YouTube、HN、Polymarket 与全网检索任意主题近 30 天动态，并合成有据可查的摘要。连续第四日在榜、今日涨幅第三（+954），累计 Star 70,922，站稳 7 万。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>70,922</b></span>
+          <span>今日 <b>+954</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#4</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/HKUDS/CLI-Anything" target="_blank"><span class="owner">HKUDS/</span>CLI-Anything</a>
+          <span class="gain">+898 ★ 今日</span>
+        </div>
+        <p class="r-desc">CLI-Anything：HKUDS 出品的「让所有软件 agent-native」项目——为任意软件自动生成可供 AI 智能体调用的 CLI，配套 CLI-Hub 浏览/安装社区 CLI；演示中智能体借生成的 CLI 完成 CAD 建模、3D 场景、图表、字幕等真实工件。连续第二日在榜、今日涨幅第四（+898），累计 Star 60,686。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>60,686</b></span>
+          <span>今日 <b>+898</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#5</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/firecrawl/firecrawl" target="_blank"><span class="owner">firecrawl/</span>firecrawl</a>
+          <span class="gain">+825 ★ 今日</span>
+        </div>
+        <p class="r-desc">firecrawl：让智能体更聪明的知识基础设施——一次 API 调用即可完成网页搜索、抓取与结构化抽取，并接入 550+ 数据提供方，是编码智能体获取外部知识的高频底座。回归登榜（上次 08-11），今日涨幅第五（+825），累计 Star 204,410，站稳 20 万。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>204,410</b></span>
+          <span>今日 <b>+825</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#6</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/cursor/plugins" target="_blank"><span class="owner">cursor/</span>plugins</a>
+          <span class="gain">+384 ★ 今日</span>
+        </div>
+        <p class="r-desc">cursor/plugins：Cursor 官方插件规范与官方插件集合——按 README，涵盖智能体技能、子智能体、并行云端智能体编排、代码审查，以及 Gmail/Drive/Salesforce/GitHub 等第三方集成，是 Cursor 编码智能体的官方扩展生态。连续第三日在榜，累计 Star 17,604。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>17,604</b></span>
+          <span>今日 <b>+384</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#89E051">
+      <div class="rank">#7</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/mjmirza/app-store-compliance" target="_blank"><span class="owner">mjmirza/</span>app-store-compliance</a>
+          <span class="gain">+377 ★ 今日</span>
+        </div>
+        <p class="r-desc">app-store-compliance：App Store / Google Play 审核合规手册与提交前自动守卫——按 README 收录 117 种被拒模式及修复方案、隐私清单与数据安全检查、95 项合规截止日期（EU AI Act、DSA、COPPA、年龄法），并附带面向 AI 编码智能体的技能。全历史首次登榜，累计 Star 1,982。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#89E051"></span>Shell</span>
+          <span>★ <b>1,982</b></span>
+          <span>今日 <b>+377</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#8</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/XiaoYouChR/Ghost-Downloader-3" target="_blank"><span class="owner">XiaoYouChR/</span>Ghost-Downloader-3</a>
+          <span class="gain">+341 ★ 今日</span>
+        </div>
+        <p class="r-desc">Ghost-Downloader-3：「下载器的集大成者」——跨平台通用媒体下载工具，主打弱网环境下的稳定下载与统一体验。属 yt-dlp 一类的通用媒体下载器（README 中的代理服务仅为广告），累计 Star 12,945，全历史首次登榜。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>12,945</b></span>
+          <span>今日 <b>+341</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#9</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/google-labs-code/stitch-skills" target="_blank"><span class="owner">google-labs-code/</span>stitch-skills</a>
+          <span class="gain">+302 ★ 今日</span>
+        </div>
+        <p class="r-desc">stitch-skills：Google Labs 官方出品的 Agent Skills 技能库——为 Stitch MCP 服务器设计，每个技能均遵循 Agent Skills 开放标准，可兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码智能体。连续第五日在榜，累计 Star 10,782，站稳 1 万。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>10,782</b></span>
+          <span>今日 <b>+302</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#E34F26">
+      <div class="rank">#10</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/cathrynlavery/diagram-design" target="_blank"><span class="owner">cathrynlavery/</span>diagram-design</a>
+          <span class="gain">+271 ★ 今日</span>
+        </div>
+        <p class="r-desc">diagram-design：面向 Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder 与 Pi 的「编辑部级」示意图设计技能——内置 45 种图表类型，产出零依赖、自包含的 HTML + SVG，无阴影，也没有千篇一律的 Mermaid 味。回归登榜（上次 10-14），累计 Star 68,767。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#E34F26"></span>HTML</span>
+          <span>★ <b>68,767</b></span>
+          <span>今日 <b>+271</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#00599C">
+      <div class="rank">#11</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/openvinotoolkit/openvino" target="_blank"><span class="owner">openvinotoolkit/</span>openvino</a>
+          <span class="gain">+246 ★ 今日</span>
+        </div>
+        <p class="r-desc">openvino：Intel 出品的 OpenVINO 工具包——开源深度学习模型优化与推理部署工具，跨平台加速 AI 推理，配套 Generative AI 与 Model Hub。连续第二日在榜，累计 Star 11,598。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#00599C"></span>C++</span>
+          <span>★ <b>11,598</b></span>
+          <span>今日 <b>+246</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#12</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/jingyaogong/minimind" target="_blank"><span class="owner">jingyaogong/</span>minimind</a>
+          <span class="gain">+238 ★ 今日</span>
+        </div>
+        <p class="r-desc">minimind：🧠 用 2 小时从零训练一个 6400 万参数的 LLM——中文社区广受欢迎的 LLM 入门实战项目，覆盖数据处理、预训练、SFT 到部署全流程。回归登榜（上次 11-18），累计 Star 67,072。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>67,072</b></span>
+          <span>今日 <b>+238</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3178C6">
+      <div class="rank">#13</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/toeverything/AFFiNE" target="_blank"><span class="owner">toeverything/</span>AFFiNE</a>
+          <span class="gain">+182 ★ 今日</span>
+        </div>
+        <p class="r-desc">AFFiNE：「不止于 Notion 与 Miro」的下一代知识库——把规划、整理与创作合为一体，隐私优先、开源、可定制、开箱即用。全历史首次登榜，累计 Star 75,265。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span>★ <b>75,265</b></span>
+          <span>今日 <b>+182</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#14</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/zhouxiaoka/autoclip" target="_blank"><span class="owner">zhouxiaoka/</span>autoclip</a>
+          <span class="gain">+126 ★ 今日</span>
+        </div>
+        <p class="r-desc">autoclip：AI 驱动的一键出片工具——把播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面与发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。回归登榜（上次 09-22），累计 Star 11,443。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>11,443</b></span>
+          <span>今日 <b>+126</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#A8B9CC">
+      <div class="rank">#15</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/nginx/nginx" target="_blank"><span class="owner">nginx/</span>nginx</a>
+          <span class="gain">+73 ★ 今日</span>
+        </div>
+        <p class="r-desc">nginx：NGINX 开源官方仓库——高性能 HTTP 与反向代理服务器，也是全球使用最广泛的 Web 基础设施之一。全历史首次登榜，累计 Star 32,383。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#A8B9CC"></span>C</span>
+          <span>★ <b>32,383</b></span>
+          <span>今日 <b>+73</b></span>
+        </div>
+      </div>
+    </div>
+    <div class="repo" style="--stripe:#3776AB">
+      <div class="rank">#16</div>
+      <div class="r-main">
+        <div class="r-head">
+          <a class="r-name" href="https://github.com/Tracer-Cloud/opensre" target="_blank"><span class="owner">Tracer-Cloud/</span>opensre</a>
+          <span class="gain">+38 ★ 今日</span>
+        </div>
+        <p class="r-desc">opensre：开源 CI/CD 可靠性智能体——按 README 为自托管 CLI agent，读取失败的 CI 运行记录、追踪根因并推送修复供人工审阅，可使用自有模型。全历史首次登榜，累计 Star 13,206。</p>
+        <div class="r-meta">
+          <span class="lang"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span>★ <b>13,206</b></span>
+          <span>今日 <b>+38</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="section-head"><h2>📊 编程语言分布</h2></div>
+    <div class="lang-list">
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#3776AB"></span>Python</span>
+          <span class="ltrack"><span class="lfill" style="--c:#3776AB;width:100%"></span></span>
+          <span class="lcount">7 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#3178C6"></span>TypeScript</span>
+          <span class="ltrack"><span class="lfill" style="--c:#3178C6;width:57%"></span></span>
+          <span class="lcount">4 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#89E051"></span>Shell</span>
+          <span class="ltrack"><span class="lfill" style="--c:#89E051;width:28%"></span></span>
+          <span class="lcount">2 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#A8B9CC"></span>C</span>
+          <span class="ltrack"><span class="lfill" style="--c:#A8B9CC;width:14%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#00599C"></span>C++</span>
+          <span class="ltrack"><span class="lfill" style="--c:#00599C;width:14%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+        <div class="lrow">
+          <span class="lname"><span class="dot" style="background:#E34F26"></span>HTML</span>
+          <span class="ltrack"><span class="lfill" style="--c:#E34F26;width:14%"></span></span>
+          <span class="lcount">1 个</span>
+        </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="insights">
+      <div class="section-head"><h2>💡 今日看点</h2></div>
+      <ul>
+<li><b>superpowers 今日涨星最快</b>：单日新增 <b>+2,028</b> Stars，连续第三日在榜并登顶涨幅榜。注意 GitHub 的榜单排序并非按当日涨幅，本报告统一按「今日新增 Star」重新排序；本日 <b>GitHub 原始榜单首位为 Claude-BugHunter（+1,349，重排后今日第 2）</b>，两者不一致，已按新增重排并注明。</li>
+<li><b>Python 以 7/16 席居首</b>：Python 包揽 Claude-BugHunter、CLI-Anything、minimind、last30days-skill、opensre、Ghost-Downloader-3、autoclip 七席；其余分布：TypeScript（4）、Shell（2）、HTML（1）、C++（1）、C（1），共 6 种语言（TypeScript 4 / Shell 2 / C、C++、HTML 各 1），无缺色回退。</li>
+<li><b>头部三强贡献约 50% 增量</b>：superpowers（+2,028）、Claude-BugHunter（+1,349）与 last30days-skill（+954）领跑今日榜单，合计占今日总增量（+8,632）的 <b>50%</b>；16 个仓库中仅 2 个单日涨幅破千，长尾由 opensre 的 +38 收尾，头部集中度中等。</li>
+<li><b>热度基本持平（约 -2%），仓库数 19→16</b>：今日收录榜单新增合计 <b>+8,632</b> Stars（16 个仓库），较上期 11-19（+8,785 / 19 个仓库）微降约 <b>2%</b>；近期走势 11-15 +6,393 → 11-16 +6,475 → 11-17 +9,704 → 11-18 +12,675 → 11-19 +8,785 → 今日 +8,632，总量站稳 8K 档而覆盖面收窄。</li>
+<li><b>AI / Agent 相关 11/16</b>：superpowers、Claude-BugHunter、last30days-skill、CLI-Anything、firecrawl、plugins、stitch-skills、diagram-design、minimind、autoclip、opensre。非 AI 的 5 个为 app-store-compliance（应用商店合规手册，AI 技能为附属功能（Veyra-NRVideo 先例））、Ghost-Downloader-3（通用媒体下载器，无 AI 身份）、openvino（通用深度学习推理工具（ggml 先例））、AFFiNE（知识库/协作工作区，本体非 AI（univer 先例））、nginx（通用 Web 服务器，无 AI 身份）。口径说明：opensre 与 diagram-design 经 README 核实分别以「CLI agent for CI/CD」与「agent skill」为核心定位，计入 AI；app-store-compliance 的 AI 技能为合规手册的附属功能，沿用 Veyra-NRVideo 先例不计入；Ghost-Downloader-3 为 yt-dlp 类通用媒体下载器，按 09-30 规则剔除口径不剔除。</li>
+<li><b>新面孔 5 个、回归 5 个、延续 6 个、掉榜 13 个</b>：首次登榜 <b>nginx</b>（Web 基础设施常青树）、<b>app-store-compliance</b>（应用商店合规手册）、<b>opensre</b>（CI/CD 可靠性智能体）、<b>AFFiNE</b>（开源知识库）、<b>Ghost-Downloader-3</b>（通用下载器）；回归 Claude-BugHunter（上次 11-18）、minimind（11-18）、diagram-design（10-14）、firecrawl（08-11）、autoclip（09-22）；上期掉榜：arcane、SkillEvaluator、nvm、uv、paper-orchestra、svelte、jquery、appwrite、ECC、jiangshan-map、n8n、solid、awesome-mcp-servers，换手率 68%。</li>
+<li><b>主题观察：「技能回归」×「智能体走向真实工作流」</b>——上期爆发后，今日榜单出现一批技能类老面孔回归：<b>Claude-BugHunter</b>（漏洞挖掘/红队 82 技能，原始榜首）、<b>diagram-design</b>（编辑部级图表技能）、<b>superpowers</b>/<b>stitch-skills</b>/<b>last30days-skill</b> 延续在榜；同时智能体开始接管具体工作流：<b>opensre</b> 自动追查 CI 失败并推修复、<b>autoclip</b> 一键长视频转短视频、<b>firecrawl</b> 提供 550+ 数据源的知识底座、<b>CLI-Anything</b> 让任意软件 agent-native。中文阵营四席：minimind、Ghost-Downloader-3、autoclip 与 AFFiNE。</li>
+<li><b>里程碑观察</b>：今日有 <b>2 个 10 万+ 星仓库</b>——<b>superpowers 322,216</b>（站稳 32 万）与 <b>firecrawl 204,410</b>（站稳 20 万）；<b>AFFiNE 75,265</b> 与 <b>last30days-skill 70,922</b> 分别站稳 7 万档；<b>diagram-design 68,767</b>、<b>minimind 67,072</b>、<b>CLI-Anything 60,686</b> 构成 6 万档梯队；新登榜的 nginx 仅 32,383 星，属「低星高增」的基础设施首秀。今日无 100 万+ 仓库。</li>
+      </ul>
+    </div>
+  </div>
+  <!--PAGENAV-START-->
+  <nav class="pagenav"><a class="pn-prev" href="github-trending-2026-11-19.html">← 上一个</a><a class="pn-home" href="index.html">🏠 主页</a><span class="disabled">⚡ 最新</span><span class="disabled">下一个 →</span></nav>
+  <!--PAGENAV-END-->
+<div class="footer">
+    🔗 数据来源 <a href="https://github.com/trending" target="_blank">GitHub Trending</a> · 自动生成于 2026年11月20日 CST<br>
+    由 <a href="https://github.com/lph12168x" target="_blank">@lph12168x</a> 维护 · <a href="index.html">日报列表</a>
+  </div>
+  <script>
+    (function(){var t=localStorage.getItem("gh-trending-theme");
+      if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");
+        document.getElementById("themeBtn").innerHTML="☀️ Light";}})();
+    function toggleTheme(){var d=document.documentElement.getAttribute("data-theme")==="dark";
+      if(d){document.documentElement.removeAttribute("data-theme");localStorage.setItem("gh-trending-theme","light");
+        document.getElementById("themeBtn").innerHTML="🌙 Dark";}
+      else{document.documentElement.setAttribute("data-theme","dark");localStorage.setItem("gh-trending-theme","dark");
+        document.getElementById("themeBtn").innerHTML="☀️ Light";}}
+  </script>
+
+</body>
+</html>
